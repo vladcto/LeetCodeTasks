@@ -14,11 +14,12 @@ class Solution {
     if (node == null) return [];
     if (node.right == null && node.left == null)
       return targetSum - node.val == 0 ? [List.from(path)..add(node.val)] : [];
-    path.add(node.val);
 
+    path.add(node.val);
     var res1 = dfs(node.right, targetSum - node.val, path);
     var res2 = dfs(node.left, targetSum - node.val, path);
     path.removeLast();
+    
     return res1..addAll(res2);
   }
 }

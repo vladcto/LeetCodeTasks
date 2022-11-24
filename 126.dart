@@ -17,18 +17,18 @@ class Solution {
       }
 
     List<List<int>> pathGraph = List.generate(wordList.length, (index) => []);
-    Queue<int> dfsQueue = Queue()..add(0);
+    Queue<int> bfsQueue = Queue()..add(0);
     Set<int> visited = {};
     Set<int> childVisited = {};
-    while (!dfsQueue.isEmpty) {
-      childVisited.addAll(dfsQueue);
+    while (!bfsQueue.isEmpty) {
+      childVisited.addAll(bfsQueue);
       if (pathGraph[endWorldIndex].length > 0) break;
-      int queueLen = dfsQueue.length;
+      int queueLen = bfsQueue.length;
       for (int i = 0; i < queueLen; i++) {
-        int nowWord = dfsQueue.removeFirst();
+        int nowWord = bfsQueue.removeFirst();
         if (visited.contains(nowWord)) continue;
         visited.add(nowWord);
-        dfsQueue.addAll(wordsGraph[nowWord] ?? []);
+        bfsQueue.addAll(wordsGraph[nowWord] ?? []);
         (wordsGraph[nowWord] ?? []).forEach((index) =>
             !childVisited.contains(index) && !visited.contains(index)
                 ? pathGraph[index].add(nowWord)

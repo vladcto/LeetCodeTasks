@@ -8,8 +8,9 @@ class TreeNode {
 class Solution {
   List<int> inorderTraversal(TreeNode? root) {
     if (root == null) return [];
-    return [root.val]
+   return []
       ..addAll(inorderTraversal(root.left))
+      ..add(root.val)
       ..addAll(inorderTraversal(root.right));
   }
 }
