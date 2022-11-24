@@ -5,7 +5,7 @@ class Solution {
     for (int i = 0; i < n; i++) {
       res = step1 + step2;
       step2 = step1;
-      step1 = step1 + step2;
+      step1 = res;
     }
     return res;
   }
