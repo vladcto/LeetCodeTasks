@@ -6,8 +6,8 @@ class ListNode {
 
 class Solution {
   ListNode? reverseList(ListNode? head, [ListNode? parent = null]) {
-    var next = head!.next;
-    head.next = parent;
-    return next == null ? null : reverseList(next, head);
+    if (head == null) return head;
+    if (head.next == null) return head..next = parent;
+    return reverseList(head.next, head..next = parent);
   }
 }
