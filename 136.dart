@@ -1,12 +1,16 @@
 class Solution {
   int singleNumber(List<int> nums) {
-    Set<int> used = {};
-    for (int i = 0; i < nums.length; i++) {
-      if (used.contains(nums[i]))
-        used.remove(nums[i]);
-      else
-        used.add(nums[i]);
+    int res = 0;
+    for (var nNum in nums) {
+      res ^= nNum;
     }
-    return used.first;
+    return res;
   }
 }
+
+/* One-line solution
+class Solution {
+  int singleNumber(List<int> nums) =>
+      nums.fold(0, (previousValue, element) => previousValue ^ element);
+}
+*/
