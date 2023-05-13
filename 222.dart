@@ -10,7 +10,6 @@ class Solution {
     if (root == null) return 0;
     TreeNode? left = root, right = left;
     int lD = 1, rD = 1;
-
     while ((left = left!.left) != null) lD++;
     while ((right = right!.right) != null) rD++;
 

@@ -14,11 +14,20 @@ class Solution {
     return diff <= 1 && isBalanced(root.left) && isBalanced(root.right);
   }
 
-  int maxHeight(TreeNode? root, [int height = 0]) {
-    if (root == null) return height;
-    return max(
-      maxHeight(root.left, height + 1),
-      maxHeight(root.right, height + 1),
-    );
+  int maxHeight(TreeNode? root) {
+    if (root == null) return 0;
+    return 1 +
+        max(
+          maxHeight(root.left),
+          maxHeight(root.right),
+        );
+  }
+}
+
+extension TreeNodeExtension on TreeNode {
+  bool sameAs(TreeNode? other) {
+    return this.val == other?.val &&
+        left?.val == other?.left?.val &&
+        right?.val == other?.right?.val;
   }
 }
