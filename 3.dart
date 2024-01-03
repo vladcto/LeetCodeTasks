@@ -3,16 +3,16 @@ import 'dart:math';
 
 class Solution {
   int lengthOfLongestSubstring(String s) {
-    HashMap<String, int> indexMap = HashMap<String, int>();
-    int res = 0, j = 0;
+    final indexMap = HashMap<String, int>();
+    var res = 0, j = 0;
 
-    for (int i = 0; i < s.length; i++) {
+    for (var i = 0; i < s.length; i++) {
       if (indexMap.containsKey(s[i])) {
-        j = i;
+        res = max(res, i - j);
+        j = max(indexMap[s[i]]! + 1, j);
       }
       indexMap[s[i]] = i;
-      res = max(res, i - j + 1);
     }
-    return res;
+    return max(res, s.length - j);
   }
 }

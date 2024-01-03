@@ -5,11 +5,7 @@ class Solution {
     final visited = <String>{};
     int res = 0;
     for (int ri = 0, li = 0; ri < s.length; ri++) {
-      if (visited.contains(s[ri])) {
-        while (s[li] != s[ri]) {
-          visited.remove(s[li]);
-          li++;
-        }
+      while (visited.contains(s[ri])) {
         visited.remove(s[li++]);
       }
       visited.add(s[ri]);
