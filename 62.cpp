@@ -17,6 +17,6 @@ public:
           pathsSum[index] += pathsSum[(i - 1) * n + j];
       }
     }
-    return pathsSum[m * n - 1];
+    return pathsSum.back();
   }
 };
