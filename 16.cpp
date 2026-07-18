@@ -5,8 +5,8 @@
 class Solution {
 public:
   int threeSumClosest(const std::vector<int> &nums, int target) {
-    auto closet = std::numeric_limits<int>::max();
-    auto closetSum = 0;
+    auto closestDiff = std::numeric_limits<int>::max();
+    auto closestSum = 0;
 
     auto size = std::ranges::ssize(nums);
     for (auto i = 0; i < size - 2; i++) {
@@ -14,14 +14,14 @@ public:
         for (auto z = j + 1; z < size; z++) {
           auto sum = nums[i] + nums[j] + nums[z];
           auto diff = abs(target - sum);
-          if (diff < closet) {
-            closet = diff;
-            closetSum = sum;
+          if (diff < closestDiff) {
+            closestDiff = diff;
+            closestSum = sum;
           }
         }
       }
     }
 
-    return closetSum;
+    return closestSum;
   }
 };
