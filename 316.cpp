@@ -5,7 +5,7 @@
 
 class Solution {
 public:
-  std::string smallestSubsequence(const std::string& s) {
+  std::string removeDuplicateLetters(const std::string& s) {
     std::string result{};
 
     std::unordered_set<char> uniqueLettersSet(s.begin(), s.end());
