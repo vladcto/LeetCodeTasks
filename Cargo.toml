@@ -17,3 +17,7 @@ path = "3483.rs"
 [[bin]]
 name = "835"
 path = "835.rs"
+
+[[bin]]
+name = "836"
+path = "836.rs"
